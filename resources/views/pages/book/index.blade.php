@@ -7,10 +7,10 @@
     </div>
     <hr>
 
-    @if(Session::has('success'))
-    <div class="alert alert-success" role="alert">
-        {{ Session::get('success') }}
-    </div>
+    @if (Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('success') }}
+        </div>
     @endif
 
     <table class="table table-hover">
@@ -25,31 +25,34 @@
         </thead>
         <tbody>
 
-            @if($books->count() > 0)
-            @foreach($books as $book)
-            <tr>
-                <td class="align-middle">{{ $loop->iteration }}</td>
-                <td class="align-middle">{{ $book->name }}</td>
-                <td class="align-middle">{{ $book->author }}</td>
-                <td class="align-middle">{{ $book->year }}</td>
-                <td>
-                    <div class="btn-group gap-2" roler="group" aria-label="Basic example">
-                        <a href="{{ route('book.show', $book->id)  }}" type="button" class="btn btn-secondary rounded">Detail</a>
-                        <a href="{{ route('book.edit', $book->id) }}" type="button" class="btn btn-warning rounded">Edit</a>
-                        <form action="{{ route('book.destroy', $book->id)}}" method="POST" type="button" onsubmit="return confirm('Are You Sure Wanna Delete It?')">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger rounded">Delete</button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            @endforeach
+            @if ($books->count() > 0)
+                @foreach ($books as $book)
+                    <tr>
+                        <td class="align-middle">{{ $loop->iteration }}</td>
+                        <td class="align-middle">{{ $book->name }}</td>
+                        <td class="align-middle">{{ $book->author }}</td>
+                        <td class="align-middle">{{ $book->year }}</td>
+                        <td>
+                            <div class="btn-group gap-2" roler="group" aria-label="Basic example">
+                                <a href="{{ route('book.show', $book->id) }}" type="button"
+                                    class="btn btn-secondary rounded">Detail</a>
+                                <a href="{{ route('book.edit', $book->id) }}" type="button"
+                                    class="btn btn-warning rounded">Edit</a>
+                                <form action="{{ route('book.destroy', $book->id) }}" method="POST" type="button"
+                                    onsubmit="return confirm('Are You Sure Wanna Delete It?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger rounded">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
             @else
                 <tr>
-                    <td class="text-center" colspan="5">Book not found</td>
+                    <td class="text-center" colspan="5">Book Not Found</td>
                 </tr>
             @endif
-        </tbody>        
+        </tbody>
     </table>
 @endsection

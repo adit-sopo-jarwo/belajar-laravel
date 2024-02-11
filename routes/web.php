@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{lang}', function () {
+Route::get('/', function () {
     return view('pages.welcome');
 })->name('welcome');
 

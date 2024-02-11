@@ -13,12 +13,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('book.index') }}">Book</a>
                 </li>
-                <li>
-                    <a class="nav-item" href="lang/id">ID</a>
-                </li>
-                <li>
-                    <a class="nav-item" href="lang/en">EN</a>
-                </li>
             </ul>
         </div>
     </div>

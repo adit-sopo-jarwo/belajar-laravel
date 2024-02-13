@@ -25,7 +25,7 @@
         </div>
         <div class="col mb-3">
             <label class="form-label">Description</label>
-            <textarea name="description" class="form-control" placeholder="Description" readonly>{{ $book->description }} </textarea>
+            <textarea name="description" class="form-control" placeholder="Description" readonly={{ $book->description }} </textarea>
         </div>
     </div>
     <div class="row">
